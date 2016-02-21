@@ -1,18 +1,8 @@
 class Complement
 	VERSION = 3
+
   def self.of_dna(nucleotide)
-    strand = nucleotide.chars
-    arr = transcribe(strand)
+    nucleotide.gsub('C', 'G').gsub('G', 'C').gsub('T', 'A').gsub('A', 'U')
   end
 
-  def self.transcribe(strand)
-    arr = []
-    strand.each  do |letter|
-      arr << 'G' if letter == 'C'
-      arr << 'C' if letter == 'G'
-      arr << 'A' if letter == 'T'
-      arr << 'U' if letter == 'A'
-    end
-    arr.join
-  end
 end
