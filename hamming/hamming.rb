@@ -1,4 +1,5 @@
 class Hamming
+	VERSION = 1
 	def self.compute(a, b)
 		#len = [a.length, b.length].min
 		raise ArgumentError unless a.length == b.length
