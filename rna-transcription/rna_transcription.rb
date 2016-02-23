@@ -3,16 +3,14 @@ class Complement
   STRAND_MATCHS = { 'C' => 'G', 'G' => 'C', 'T' => 'A', 'A' => 'U'}
 
   def self.of_dna(nucleotide)
-     transcribe(nucleotide)
+     transcribe(nucleotide).join
    end
 
   def self.transcribe(strand)
-    arr = ''
-    strand.each_char  do |letter|
+    strand.each_char.map do |letter|
       raise ArgumentError if !STRAND_MATCHS.keys.include? letter
-      arr << STRAND_MATCHS[letter]
+      STRAND_MATCHS[letter]
     end
-    arr
   end
 
 end
