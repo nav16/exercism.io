@@ -5,7 +5,7 @@ class Complement
      strand = nucleotide.chars
      arr = transcribe(strand)
    end
- 
+
    def self.transcribe(strand)
      arr = []
      strand.each  do |letter|
@@ -18,4 +18,4 @@ class Complement
      end
      arr.join
    end
-end 
+end
