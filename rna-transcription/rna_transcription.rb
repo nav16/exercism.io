@@ -3,20 +3,16 @@ class Complement
   STRAND_MATCHS = { 'C' => 'G', 'G' => 'C', 'T' => 'A', 'A' => 'U'}
 
   def self.of_dna(nucleotide)
-     strand = nucleotide.chars
-     arr = transcribe(strand)
+     transcribe(nucleotide)
    end
 
   def self.transcribe(strand)
-    arr = []
-    strand.each  do |letter|
-      STRAND_MATCHS.each do |value, replace|
-        arr << replace if letter == value
-      end
-        str = "CGTA"
-        raise ArgumentError if !str.include? letter
+    arr = ''
+    strand.each_char  do |letter|
+      raise ArgumentError if !STRAND_MATCHS.keys.include? letter
+      arr << STRAND_MATCHS[letter]
     end
-    arr.join
+    arr
   end
 
 end
