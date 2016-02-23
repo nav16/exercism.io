@@ -63,7 +63,6 @@ class BobTest < Minitest::Test
   end
 
   def test_only_numbers
-    skip
     remark = '1, 2, 3'
     assert_equal 'Whatever.', bob.hey(remark), feedback(remark)
   end

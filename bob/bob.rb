@@ -1,22 +1,19 @@
 class Bob
 
-	def hey(command)
-		command = command.gsub("\n", "")
-		str = command.strip
-		return "Fine. Be that way!" if str.empty?
+  def hey(command)
+    command = command.gsub("\n", " ")
+    return "Whoa, chill out!" if command =~ /[a-zA-Z]+/ && (command == command.upcase)
 
-		command1 = command.upcase
-		out = command <=> command1
-		str = /\d\?|[^A-Z]\?/.match(command)
-		return "Whoa, chill out!" if !str && out == 0
+    return "Sure." if command =~ /\?$/
 
-		str = /\?$/.match(command)
-		return "Sure." if str
+    return "Fine. Be that way!" if !(command =~ /\w/)
 
-		return "Whatever."
+    return "Whatever."
 
-	end
+  end
 end
-
 pharse = Bob.new
-puts pharse.hey("1, 2, 3")
+remark = %(
+Does this cryogenic chamber make me look fat?
+no)
+puts pharse.hey(remark)
