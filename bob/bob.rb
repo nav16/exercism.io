@@ -12,8 +12,3 @@ class Bob
 
   end
 end
-pharse = Bob.new
-remark = %(
-Does this cryogenic chamber make me look fat?
-no)
-puts pharse.hey(remark)
