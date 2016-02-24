@@ -15,7 +15,6 @@ class School
     @school.sort.select{ |key, value| key == grade }.map do |key, value|
       value
     end
-
   end
 
   def add(value, key)
