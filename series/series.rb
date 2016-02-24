@@ -6,11 +6,7 @@ class Series
 
   def slices(slice)
     raise ArgumentError if @number.length < slice
-    nu = []
-    (0..(@number.length)).each do |num|
-      nu << @number[num..slice + num - 1].to_a if @number[num..slice + num - 1].length == slice
-    end
-    nu
+    @number.each_cons(slice).to_a
   end
 
 end
