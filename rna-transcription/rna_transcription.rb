@@ -7,7 +7,7 @@ class Complement
    end
 
   def self.transcribe(strand)
-    strand.each_char.map do |letter|
+    strand.chars.map do |letter|
       raise ArgumentError if !STRAND_MATCHS.keys.include? letter
       STRAND_MATCHS[letter]
     end
