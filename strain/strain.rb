@@ -1,11 +1,19 @@
 class Array
 
   def keep
-    select { |cd| yield cd }
+    if block_given?
+      map do |n|
+        n if yield(n)
+      end.compact
+    end
   end
 
   def discard
-    reject { |cd| yield cd }
+    if block_given?
+      map do |n|
+        n unless yield(n)
+      end.compact
+    end
   end
 
 end
