@@ -5,16 +5,18 @@ class Anagram
   end
 
   def match(words)
-    arr = []
     words.select do |word|
-      arr << word if to_char(word) == to_char(@anagram) && !(word.to_s.downcase.include? @anagram)
+      word if to_char(word) == to_char(@anagram) && !(to_downcase(word).include? @anagram)
     end
-    arr
   end
 
   private
 
+  def to_downcase(word)
+    word.to_s.downcase
+  end
+
   def to_char(string)
-    string.to_s.downcase.chars.sort
+    to_downcase(string).chars.sort
   end
 end
