@@ -14,11 +14,9 @@ class Scrabble
   end
 
   def score
-    sum = 0
-    @word.each_char do |letter|
+    @word.each_char.inject(0) do |sum, letter|
       sum += match_hash(letter)
     end
-    sum
   end
 
   def self.score(word)
