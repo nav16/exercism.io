@@ -45,6 +45,7 @@ class BeerSongTest < Minitest::Test
   end
 
   def test_a_few_verses
+    skip
     expected = "2 bottles of beer on the wall, 2 bottles of beer.\n" \
       "Take one down and pass it around, 1 bottle of beer on the wall.\n" \
       "\n" \

@@ -9,12 +9,9 @@ class BeerSong
   end
 
   def verses(*number)
-    lyric = ''
-    number.each do |num|
-    lyric << all_lyric
-      lyric << "\n" if number.last != num
-    end
-    lyric
+    start = number.max
+    stop = number.min
+    all_lyric(start, stop)
   end
 
   def lyrics
@@ -43,9 +40,9 @@ class BeerSong
     "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
   end
 
-  def all_lyric(max = 99)
+  def all_lyric(max = 99, min = 3)
     lyric = ''
-    (3..max).reverse_each do |num|
+    (min..max).reverse_each do |num|
       lyric << other_verse(num)
       lyric << "\n"
     end
