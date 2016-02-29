@@ -62,3 +62,4 @@ class Queens
     @board[position.first][position.last] = color
   end
 end
+Queens.new(white: [1, 1])
