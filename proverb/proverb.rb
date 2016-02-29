@@ -14,7 +14,7 @@ class Proverb
   private
 
   def append_lines
-    (0..@words.length-2).map do |num|
+    (0..@words.length - 2).map do |num|
       "For want of a #{@words[num]} the #{@words[num + 1]} was lost.\n"
     end
   end
