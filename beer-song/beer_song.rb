@@ -8,14 +8,14 @@ class BeerSong
     other_verse(number)
   end
 
-  def verses(*number)
-    start = number.max
-    stop = number.min
-    all_lyric(start, stop)
+  def verses(start, stop)
+    (start).downto(stop).map do |ver|
+      verse(ver)
+    end.join("\n")
   end
 
   def lyrics
-    all_lyric
+    verses(99, 0)
   end
 
   private
@@ -39,17 +39,6 @@ class BeerSong
     "No more bottles of beer on the wall, no more bottles of beer.\n" \
     "Go to the store and buy some more, 99 bottles of beer on the wall.\n"
   end
-
-  def all_lyric(max = 99, min = 3)
-    lyric = ''
-    (min..max).reverse_each do |num|
-      lyric << other_verse(num)
-      lyric << "\n"
-    end
-    lyric << verse_2 << "\n"
-    lyric << verse_1 << "\n"
-    lyric << verse_0
-  end
 end
 
-puts BeerSong.new.verses(2, 0)
+puts BeerSong.new.verses(99, 98)
