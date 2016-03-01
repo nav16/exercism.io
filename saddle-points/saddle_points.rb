@@ -9,7 +9,9 @@ class Matrix
   end
 
   def saddle_points
-    find_saddle_points
+    positions.select do |pos|
+      check_saddle_point? pos
+    end
   end
 
   private
@@ -26,15 +28,19 @@ class Matrix
       end
   end
 
-  def find_saddle_points
-    arr = []
-    @matrix.each_with_index do |value, index|
-      arr << if
-    max = @rows.max
-    min = @columns.min
-    return [@rows.index] if max == min
+  def check_saddle_point?(position)
+    value = rows[position[0]][position[1]]
+    @rows[position[0]].all? {|test| value >= test} &&
+    @columns[position[1]].all? {|test| value <= test}
+  end
+
+  def positions
+    positions = []
+    (0...(@rows.count)).each do |row|
+      (0...(@columns.count)).each do |col|
+        positions << [row,col]
+      end
+    end
+    positions
   end
 end
-
-matrix = Matrix.new("18 3 39 19 91\n38 10 8 77 320\n3 4 8 6 7")
-puts matrix.saddle_points
